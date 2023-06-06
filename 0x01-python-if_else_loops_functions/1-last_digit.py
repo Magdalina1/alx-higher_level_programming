@@ -8,5 +8,4 @@ if abs(number) % 10 > 5:
 elif abs(number) % 10 == 0:
     print("and is 0")
 else abs(number) % 10 < 5:
-     print ("and is less than 5")
     print("and is less than 6 and not 0")
