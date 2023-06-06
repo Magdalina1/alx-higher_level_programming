@@ -1,8 +1,6 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 def islower(c):
-    """
-    Returns True if c is lowercase
-    Return False otherwise
-    """
-    return ord(c) >= 97 and ord(c) <= 122
-
+    num_ascii = ord(c)
+    if num_ascii >= 97 and num_ascii <= 122:
+        return True
+    return False
