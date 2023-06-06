@@ -1,4 +1,3 @@
 #!/usr/bin/python3
-for i in range(90, 64, -1):
-    print('{:c}'.format(i + 32 if i % 2 != 0 else i), end="")
-print()
+for i in range(ord('z'), ord('a') - 1, -2):
+    print("{:c}{:s}".format(i, chr(i - 33)), end="")
