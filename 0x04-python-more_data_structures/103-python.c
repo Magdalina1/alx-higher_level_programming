@@ -1,7 +1,7 @@
 #include <Python.h>
-
-void print_python_list(PyObject *p);
-void print_python_bytes(PyObject *p);
+#include <object.h>
+#include <listobject.h>
+#include <bytesobject.h>
 
 /**
  * print_python_bytes - Prints basic info about Python byte objects.
