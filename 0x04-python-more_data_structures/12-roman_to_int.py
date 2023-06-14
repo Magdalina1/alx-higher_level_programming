@@ -12,10 +12,8 @@ def roman_to_int(roman_string):
         current = values[roman_string[i]]
 
         if i < len(roman_string) - 1 and values[roman_string[i+1] > current]:
-                if current < result:
-                    result -= current
-
-            else:
-                result += current
+            result -= current
+        else:
+            result += current
 
     return result
