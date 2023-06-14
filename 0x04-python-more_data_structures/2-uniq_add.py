@@ -3,7 +3,7 @@ def uniq_add(my_list=[]):
     unique_set = set()
 
     for itm in my_list:
-        unique_set.append(itm)
+        unique_set.add(itm)
 
     sum = 0
 
