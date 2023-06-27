@@ -4,7 +4,7 @@
 
 class Square:
     """
-    This class represents a square with private
+    this class represents a square with private
     instance attributes: size and position.
     """
 
@@ -108,7 +108,7 @@ class Square:
         """
         result = ""
         if self.__size == 0:
-            return "\n"
+            return result
         else:
             for _ in range(self.__position[1]):
                 result += "\n"
