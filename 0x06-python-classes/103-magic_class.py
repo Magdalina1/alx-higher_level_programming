@@ -2,43 +2,34 @@
 """This module defines a class Square"""
 
 
-class Square:
-    """This class represents a square with private instance attribute: size"""
+import math
 
-    def __init__(self, size=0):
-        """Initializes the square with the given size
 
+class MagicClass:
+    """This class represents a MagicClass with a private
+    instance attribute: radius."""
+
+    def __init__(self, radius=0):
+        """Initializes the MagicClass with the given radius.
         Args:
-            size (int): The size of the square (default is 0)
-        """
-        self.size = size  # Note the use of the setter
-
-    @property
-    def size(self):
-        """Returns the size of the square"""
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        """Sets the size of the square
-
-        Args:
-            value (int): The size of the square
-
+            radius (float): The radius of the MagicClass circle. Default is 0.
         Raises:
-            TypeError: If the size is not an integer
-            ValueError: If the size is less than 0
+            TypeError: If the radius is not a number.
         """
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius must be a number")
+        self.__radius = radius
 
     def area(self):
-        """Returns the current square area
-
+        """Calculates and returns the area of the MagicClass circle.
         Returns:
-            int: The area of the square
+            float: The area of the MagicClass circle.
         """
-        return self.__size ** 2
+        return math.pi * self.__radius ** 2
+
+    def circumference(self):
+        """Calculates and returns the circumference of the MagicClass circle.
+        Returns:
+            float: The circumference of the MagicClass circle.
+        """
+        return 2 * math.pi * self.__radius
