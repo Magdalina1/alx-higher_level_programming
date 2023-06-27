@@ -2,15 +2,14 @@
 """this module defines a class square"""
 
 
-def multiply(num1, num2):
+def is_palindrome(string):
     """
-    Multiply two numbers and return the result.
+    Determine if a string is a palindrome.
 
     Args:
-        num1 (int): The first number.
-        num2 (int): The second number.
+        string (str): The string to check.
 
     Returns:
-        int: The product of num1 and num2.
+        bool: True if the string is a palindrome, False otherwise.
     """
-    return num1 * num2
+    return string == string[::-1]
