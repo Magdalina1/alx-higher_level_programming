@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module matrix_mul Multiplies two matrices and returns the result."""
+"""Module matrix_mul
+Multiplies two matrices and returns the result.
+"""
 
 
 def matrix_mul(m_a, m_b):
@@ -61,7 +63,3 @@ def matrix_mul(m_a, m_b):
                 result[i][j] += m_a[i][k] * m_b[k][j]
 
     return result
-
-
-print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
