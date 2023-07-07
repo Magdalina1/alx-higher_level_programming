@@ -2,11 +2,6 @@
 #include <Object.h>
 #include <unicodeobject.h>
 
-/**
- * print_python_string - prints Python strings.
- * @p: a pointer to a Python object of type PyObject
- */
-
 void print_python_string(PyObject *p)
 {
 	const char *type = NULL;
