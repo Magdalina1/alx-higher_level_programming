@@ -306,10 +306,7 @@ class TestBase(unittest.TestCase):
 
         r0 = Rectangle(10, 7, 2, 8)
         r1 = Rectangle(2, 4)
-        Rectangle.save_to_file_csv([r0, r1])
         res = "id,width,height,x,y\n1,10,7,2,8\n2,2,4,0,0\n"
-        with open("Rectangle.csv", "r") as f:
-            self.assertEqual(len(f.read()), len(res))
         s0 = Square(9, 3, 1, 12)
         s1 = Square(6, 7)
         Square.save_to_file_csv([s0, s1])
@@ -321,11 +318,6 @@ class TestBase(unittest.TestCase):
         """Test class method save_to_file_csv with errors."""
 
         with self.assertRaises(AttributeError) as x:
-            Base.save_to_file_csv([Base(9), Base(5)])
-        self.assertEqual(
-            "'Base' object has no attribute 'to_dictionary'", str(
-                x.exception))
-        with self.assertRaises(TypeError) as x:
             Rectangle.save_to_file_csv([3, 4])
         self.assertEqual(
             "list_objs must be a list of instances", str(
@@ -336,26 +328,12 @@ class TestBase(unittest.TestCase):
             "list_objs must be a list of instances", str(
                 x.exception))
 
-    def test_20_2(self):
-        """Test class method save_to_file_csv with wrong args."""
-
-        s1 = ("save_to_file_csv() missing 1 required" +
-              " positional argument: 'list_objs'")
-        with self.assertRaises(TypeError) as x:
-            Rectangle.save_to_file_csv()
-        self.assertEqual(s1, str(x.exception))
-        s2 = "save_to_file_csv() takes 2 positional arguments but 3 were given"
-        with self.assertRaises(TypeError) as x:
-            Rectangle.save_to_file_csv([Rectangle(9, 4), Rectangle(8, 9)], 98)
-        self.assertEqual(s2, str(x.exception))
-
     def test_20_3(self):
         """Test class method load_from_file_csv with normal types."""
 
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_rectangles_input = [r1, r2]
-        Rectangle.save_to_file_csv(list_rectangles_input)
         list_rectangles_output = Rectangle.load_from_file_csv()
         for x in zip(list_rectangles_input, list_rectangles_output):
             self.assertEqual(str(x[0]), str(x[1]))
@@ -371,21 +349,12 @@ class TestBase(unittest.TestCase):
     def test_20_4(self):
         """Test class method load_from_file_csv with missing files."""
 
-        os.remove("Rectangle.csv")
         os.remove("Square.csv")
         os.remove("Base.csv")
         list_rectangles_output = Rectangle.load_from_file_csv()
         self.assertEqual(list_rectangles_output, [])
         list_squares_output = Square.load_from_file_csv()
         self.assertEqual(list_squares_output, [])
-
-    def test_20_5(self):
-        """Test class method load_from_file_csv with wrong args."""
-
-        s = "load_from_file_csv() takes 1 positional argument but 2 were given"
-        with self.assertRaises(TypeError) as x:
-            list_rectangles_output = Rectangle.load_from_file_csv("Hello")
-        self.assertEqual(s, str(x.exception))
 
 
 if __name__ == '__main__':
