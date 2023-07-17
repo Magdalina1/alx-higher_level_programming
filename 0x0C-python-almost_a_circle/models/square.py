@@ -37,10 +37,10 @@ class Square(Rectangle):
         return s
 
     @property
-    def size(value):
+    def size(self):
         """Retrieves the size attribute."""
 
-        self.width
+        return self.width
 
     @size.setter
     def size(self, value):
