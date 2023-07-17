@@ -54,12 +54,12 @@ class Base:
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string."""
 
-        l = []
+        i = []
         if json_string is not None and json_string != '':
             if type(json_string) != str:
                 raise TypeError("json_string must be a string")
-            l = json.loads(json_string)
-        return l
+            i = json.loads(json_string)
+        return i
 
     @classmethod
     def create(cls, **dictionary):
@@ -77,15 +77,15 @@ class Base:
         """Returns a list of instances."""
 
         filename = cls.__name__ + ".json"
-        l = []
+        i = []
         list_dicts = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 s = f.read()
                 list_dicts = cls.from_json_string(s)
                 for d in list_dicts:
-                    l.append(cls.create(**d))
-        return l
+                    i.append(cls.create(**d))
+        return i
 
     @staticmethod
     def draw(list_rectangles, list_squares):
