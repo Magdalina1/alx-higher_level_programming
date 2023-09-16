@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-This script prints all City objects
-from the database `hbtn_0e_14_usa`.
-"""
+"""This script prints all City objects from the database `hbtn_0e_14_usa`."""
 
 from sys import argv
 from relationship_state import Base, State
